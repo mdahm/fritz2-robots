@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "1.4.10"
+    kotlin("multiplatform") version "1.4.20"
     id("dev.fritz2.fritz2-gradle") version "0.8"
 }
 
@@ -25,6 +25,7 @@ kotlin {
             }
             val jsMain by getting {
                 dependencies {
+                    implementation("dev.fritz2:components:0.8")
                 }
             }
         }

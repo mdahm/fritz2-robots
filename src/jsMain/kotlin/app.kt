@@ -11,24 +11,15 @@ fun main() {
       +"FRITZ2"
     }
     gridBox({
-      columns { repeat(5) { "1fr" } }
+      columns { repeat(COLUMNS) { "1fr" } }
       gap { none }
-      /* further styles */
-      border {
-        color { dark }
-        this@gridBox.size { "2em" }
-        style { solid }
-      }
+      size { "48px" }
     }) {
-      cell("Hallo")
-      cell("one")
-      // all following items without styling for better readability!
-      cell("two")
-      cell("three")
-      cell("four")
-      cell("five")
-      cell("six")
-      cell("seven")
+      for (row in 1..ROWS) {
+        for (column in 1..COLUMNS) {
+          cell("${row * column}")
+        }
+      }
     }
   }.mount("target")
 }

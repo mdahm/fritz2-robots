@@ -95,4 +95,5 @@ fun RenderContext.cell(cellStore: Store<Cell>) = box({
   alignItems { center }
 }) {
   cellStore.data.asText()
+  keydowns.events handledBy GridStore.keyDown
 }

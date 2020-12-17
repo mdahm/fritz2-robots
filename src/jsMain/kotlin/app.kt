@@ -16,8 +16,14 @@ fun main() {
       "$model$action"
     }
 
-    val keyDown = handle<KeyboardEvent> { _, action: KeyboardEvent ->
-      "${action.keyCode}"
+    val keyDown = handle<KeyboardEvent> { model, action: KeyboardEvent ->
+      println(action.key)
+      val grid = GridStore.data.value
+      val cell = grid.cell(3, 3)
+      cell.color = "green"
+      cell.content = Figure(FigureType.ROBOT_TRASH, cell)
+      GridStore.update(grid)
+      model
     }
 
     val clear = handle { "" }

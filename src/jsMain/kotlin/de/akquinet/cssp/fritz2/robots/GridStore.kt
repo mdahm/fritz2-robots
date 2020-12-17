@@ -5,6 +5,8 @@ import org.w3c.dom.events.KeyboardEvent
 
 object GridStore : RootStore<Grid>(Grid()) {
   val keyDown = handle<KeyboardEvent> { model, action: KeyboardEvent ->
+    println("key:"+action.key)
+
     val cell = model.cell(3, 3)
     cell.content = Figure(FigureType.ROBOT_TRASH, cell)
     model
